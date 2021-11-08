@@ -12,9 +12,9 @@ class Database
       connection = PG.connect(dbname: 'makers_bnb')
     end 
   end
-  
+
   def self.add_space(name:)
-    connection
+    connect
     result = connection.exec_params('INSERT INTO spaces(name) VALUES($1)', [name])
   end 
 
