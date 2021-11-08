@@ -19,7 +19,7 @@ I need to be able to sign up.
 ```
 As a user
 So I can view spaces
-<del>I need to be able to store spaces in a database</del>
+<strike>I need to be able to store spaces in a database</strike>
 ```
 
 ```
@@ -48,6 +48,25 @@ As a user
 So I can get people to see my spaces.
 I can add a name for my space, a description and a per night price
 ```
+
+```
+As a user
+So I can get people to see my spaces.
+I can add a name for my space
+```
+
+```
+As a user
+So I can tell other users about my spaces.
+I want to add m description 
+```
+
+```
+As a user
+So I can set my prices per space
+I want to display a per night price on my space
+```
+
 Users should be able to offer a range of dates where their space is available.
 ```
 As a user
