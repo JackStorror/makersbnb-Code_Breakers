@@ -19,7 +19,7 @@ I need to be able to sign up.
 ```
 As a user
 So I can view spaces
-<strike>I need to be able to store spaces in a database</strike>
+<s>I need to be able to store spaces in a database</s>
 ```
 
 ```
