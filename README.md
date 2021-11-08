@@ -16,11 +16,11 @@ So I can access the site
 I need to be able to sign up.
 ```
 
-```
-As a user
+
+<s>As a user
 So I can view spaces
-<s>I need to be able to store spaces in a database</s>
-```
+I need to be able to store spaces in a database</s>
+
 
 ```
 As a user
