@@ -22,17 +22,15 @@ So I can view spaces
 I need to be able to store spaces in a database</s>
 
 
-```
-As a user
-So I can view spaces 
-I need the view to show spaces from the database
-```
 
-```
-As a user
+<s>As a user
+So I can view spaces 
+I need the view to show spaces from the database</s>
+
+
+<s>As a user
 So people can see my space
-I need to be able to add a new space to the database
-```
+I need to be able to add a new space to the database</s>
 
 Users can list multiple spaces.
 
@@ -49,11 +47,11 @@ So I can get people to see my spaces.
 I can add a name for my space, a description and a per night price
 ```
 
-```
+<s>
 As a user
 So I can get people to see my spaces.
 I can add a name for my space
-```
+</s>
 
 ```
 As a user
