@@ -1,10 +1,31 @@
 # makersbnb-Code_Breakers
+
+Minimum Viable Product MVP
+
+I can see the website
+Has a database
+Stores spaces
+display spaces
+
+
 Any signed-up user can list a new space.
 
 ```
 As a user
 So I can access the site
 I need to be able to sign up.
+```
+
+```
+As a user
+So I can view spaces
+I need to be able to store spaces in a database
+```
+
+```
+As a user
+So I can view spaces 
+I need the view to show spaces from the database
 ```
 
 ```
