@@ -17,10 +17,9 @@ I need to be able to sign up.
 ```
 
 ```
-<del>
 As a user
 So I can view spaces
-I need to be able to store spaces in a database </del>
+<del>I need to be able to store spaces in a database</del>
 ```
 
 ```
