@@ -17,21 +17,22 @@ I need to be able to sign up.
 ```
 
 ```
-~~As a user~~ 
-~~So I can view spaces~~ 
-~~I need to be able to store spaces in a database~~
+<del>
+As a user
+So I can view spaces
+I need to be able to store spaces in a database </del>
 ```
 
 ```
-<!-- As a user
+As a user
 So I can view spaces 
-I need the view to show spaces from the database -->
+I need the view to show spaces from the database
 ```
 
 ```
-<!-- As a user
+As a user
 So people can see my space
-I need to be able to add a new space to the database -->
+I need to be able to add a new space to the database
 ```
 
 Users can list multiple spaces.
