@@ -17,9 +17,9 @@ I need to be able to sign up.
 ```
 
 ```
-~~As a user 
-So I can view spaces 
-I need to be able to store spaces in a database~~
+~~As a user~~ 
+~~So I can view spaces~~ 
+~~I need to be able to store spaces in a database~~
 ```
 
 ```
