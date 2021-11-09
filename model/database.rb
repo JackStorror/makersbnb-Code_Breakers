@@ -1,4 +1,5 @@
 require_relative './space'
+
 class Database
   attr_reader :id, :name
 
@@ -15,9 +16,12 @@ class Database
     end
   end
 
-  def self.add_space(name:)
+  def self.add_space(name:, description:, price_per_night:)
     connection = Database.connect
-    result = connection.exec_params('INSERT INTO spaces(name) VALUES($1)', [name])
+    connection.exec_params(
+      "INSERT INTO spaces(name, description, price_per_night) VALUES($1, $2, $3);",
+      [name, description, price_per_night],
+    )
   end
 
   def self.get_spaces

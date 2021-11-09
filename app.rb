@@ -16,7 +16,7 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/add_space' do
-    Database.add_space(name: params[:space_name])
+    Database.add_space(name: params[:name], description: params[:description], price_per_night: params[:price_per_night])
   end
 
   get '/display_spaces' do
