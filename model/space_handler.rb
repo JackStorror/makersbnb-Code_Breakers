@@ -1,6 +1,4 @@
-require_relative './space'
-
-class Database
+class Space_handler
   attr_reader :id, :name, :description, :price_per_night
 
   def initialize(id:, name:, description:, price_per_night:)
@@ -19,7 +17,7 @@ class Database
   end
 
   def self.add_space(name:, description:, price_per_night:)
-    connection = Database.connect
+    connection = Space_handler.connect
     connection.exec_params(
       "INSERT INTO spaces(name, description, price_per_night) VALUES($1, $2, $3);",
       [name, description, price_per_night],
@@ -27,9 +25,9 @@ class Database
   end
 
   def self.get_spaces
-    connection = Database.connect
+    connection = Space_handler.connect
     result = connection.exec_params('SELECT * FROM spaces;')
-    result.map { |space| Database.new(id: space['id'], name: space['name'], description: space['description'], price_per_night: space['price_per_night']) }
+    result.map { |space| Space_handler.new(id: space['id'], name: space['name'], description: space['description'], price_per_night: space['price_per_night']) }
   end
 
 end
