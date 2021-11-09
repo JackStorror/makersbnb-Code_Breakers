@@ -32,7 +32,7 @@ I need the view to show spaces from the database</s>
 So people can see my space
 I need to be able to add a new space to the database</s>
 
-Users can list multiple spaces.
+<s>Users can list multiple spaces.
 
 ```
 As a user
