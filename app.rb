@@ -1,6 +1,8 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative './model/space_handler'
+require 'pg'
+
 
 class MakersBnB < Sinatra::Base
   configure :development do
@@ -17,6 +19,7 @@ class MakersBnB < Sinatra::Base
 
   post '/add_space' do
     Space_handler.add_space(name: params[:name], description: params[:description], price_per_night: params[:price_per_night])
+    redirect '/display_spaces'
   end
 
   get '/display_spaces' do
