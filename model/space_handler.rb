@@ -19,7 +19,7 @@ class Space_handler
   def self.add_space(name:, description:, price_per_night:)
     connection = Space_handler.connect
     connection.exec_params(
-      "INSERT INTO spaces(name, description, price_per_night) VALUES($1, $2, $3);",
+      "INSERT INTO spaces(spaces_name, spaces_description, price_per_night) VALUES($1, $2, $3);",
       [name, description, price_per_night],
     )
   end
@@ -27,7 +27,7 @@ class Space_handler
   def self.get_spaces
     connection = Space_handler.connect
     result = connection.exec_params('SELECT * FROM spaces;')
-    result.map { |space| Space_handler.new(id: space['id'], name: space['name'], description: space['description'], price_per_night: space['price_per_night']) }
+    result.map { |space| Space_handler.new(id: space['spaces_id'], name: space['spaces_name'], description: space['spaces_description'], price_per_night: space['price_per_night']) }
   end
 
 end
