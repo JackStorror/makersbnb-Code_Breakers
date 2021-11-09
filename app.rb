@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require_relative './model/database'
 
 class MakersBnB < Sinatra::Base
   configure :development do
@@ -7,16 +8,21 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/' do
-    'Hello World'
+    erb :index
   end
 
-  get '/add_space' do 
+  get '/add_space' do
     erb :add_space
-  end 
+  end
 
-  post '/add_space' do 
-    Database.add_space(name: params[:space_name] )
-  end 
+  post '/add_space' do
+    Database.add_space(name: params[:space_name])
+  end
+
+  get '/display_spaces' do
+    @spaces = Database.get_spaces
+    erb :display_spaces
+  end
 
   run! if app_file == $0
 end
