@@ -8,6 +8,8 @@ feature 'adding a space' do
     click_on 'Submit'
     result = connect_to_db.exec('SELECT * FROM spaces')
     expect(result.first['name']).to eq 'Bat Cave'
+    expect(result.first['description']).to eq 'Its a bat cave'
+    expect(result.first['price_per_night']).to eq '2.55'
   end
 
 end 
