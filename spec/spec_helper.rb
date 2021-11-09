@@ -11,6 +11,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'database_helper'
+require 'pg'
 
 # Tell Capybara to talk to BookmarkManager
 Capybara.app = MakersBnB
