@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require 'pg'
 require_relative './model/database'
 
 class MakersBnB < Sinatra::Base
@@ -17,6 +18,7 @@ class MakersBnB < Sinatra::Base
 
   post '/add_space' do
     Database.add_space(name: params[:space_name])
+    redirect '/display_spaces'
   end
 
   get '/display_spaces' do
