@@ -8,7 +8,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/' do
-    'Hello World'
+    erb :index
   end
 
   get '/add_space' do
