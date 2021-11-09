@@ -10,4 +10,5 @@ gem 'rspec'
 gem 'capybara'
 gem 'webrick'
 gem 'rubocop'
+gem 'pg'
 
