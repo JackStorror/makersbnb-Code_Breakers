@@ -21,6 +21,7 @@ class Database
   end
 
   def self.get_spaces
+    connection = Database.connect
     result = connection.exec_params('SELECT * FROM spaces;')
     result.map { |space| Space.new(space['id'], space['name']) }
   end
