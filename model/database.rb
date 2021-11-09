@@ -5,7 +5,7 @@ class Database
     @name = name
   end 
 
-  def connect
+  def self.connect
     if ENV['RACK_ENV'] = "test"
       connection = PG.connect(dbname: 'makers_bnb_test')
     else 
@@ -14,7 +14,7 @@ class Database
   end
 
   def self.add_space(name:)
-    connect
+    connection = Database.connect
     result = connection.exec_params('INSERT INTO spaces(name) VALUES($1)', [name])
   end 
 
