@@ -1,16 +1,24 @@
-require_relative '../model/space_handler'
-require 'database_helper'
+require_relative '../model/database'
 
-describe Space_handler do 
-  describe '.add_space' do 
+describe Database do 
+  
+  describe '.connect' do 
 
-    it 'We can add a space to the database' do 
-      Space_handler.add_space(name: 'Bat Cave', description: 'Its a bat cave', price_per_night: 2.55)
-      expect(connect_to_db.exec('SELECT spaces_name FROM spaces').first['spaces_name']).to eq "Bat Cave"
-      expect(connect_to_db.exec('SELECT spaces_description FROM spaces').first['spaces_description']).to eq "Its a bat cave"
-      expect(connect_to_db.exec('SELECT price_per_night FROM spaces').first['price_per_night']).to eq "2.55"
+    it 'checks we can connect to database' do 
+      expect(Database.connect('makers_bnb')).to be_instance_of(PG::Connection)
+    end
+
+  end 
+
+  describe '.query' do 
+
+    it 'checks we can retrieve items from the database' do 
+      Database.connect('makers_bnb')
+      Database.query("INSERT INTO spaces(space_name, space_description, price_per_night) VALUES('Bat Cave', 'Its a bat cave', 2.55);")
+      expect(Database.query('SELECT space_name FROM spaces').first['space_name']).to eq "Bat Cave"
     end 
 
   end 
+
 
 end 
