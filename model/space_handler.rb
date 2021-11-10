@@ -22,5 +22,4 @@ class Space_handler
     result = Database.query('SELECT * FROM spaces;')
     result.map { |space| Space_handler.new(space_id: space['space_id'], space_name: space['space_name'], space_description: space['space_description'], price_per_night: space['price_per_night']) }
   end
-
 end
