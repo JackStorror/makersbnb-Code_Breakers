@@ -18,7 +18,7 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/add_space' do
-    Space_handler.add_space(name: params[:name], description: params[:description], price_per_night: params[:price_per_night])
+    Space_handler.add_space(space_name: params[:space_name], space_description: params[:space_description], price_per_night: params[:price_per_night])
     redirect '/display_spaces'
   end
 
