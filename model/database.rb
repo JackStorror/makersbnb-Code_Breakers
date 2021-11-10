@@ -3,10 +3,14 @@ class Database
 
   def self.connect(database)
     if ENV['RACK_ENV'] = "test"
-      PG.connect(dbname: "#{database}_test")
+      @connection = PG.connect(dbname: "#{database}_test")
     else
-      PG.connect(dbname: database)
+      @connection = PG.connect(dbname: database)
     end
   end
+
+  def self.query(sql, params = [])
+    @connection.exec_params(sql, params)
+  end 
 
 end
