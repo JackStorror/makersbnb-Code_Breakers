@@ -1,4 +1,5 @@
 require 'PG'
+require_relative '../model/database'
 
 def reset_db_makers_bnb
   connection = PG.connect(dbname: 'makers_bnb_test')
@@ -19,3 +20,8 @@ def persist_space_id(table:)
   @space_id = connection.query("SELECT space_id FROM #{table} ")
 end
 
+def populate_spaces_table
+  Space_handler.add_space(space_name: 'Bat Cave', space_description: 'Its a bat cave', price_per_night: 2.55)
+  Space_handler.add_space(space_name: 'Makers HQ', space_description: 'Makers HQ', price_per_night: 50)
+  Space_handler.add_space(space_name: 'Paradise', space_description: 'Its paradise', price_per_night: 99)
+end
