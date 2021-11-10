@@ -10,12 +10,12 @@ feature 'adding a space' do
 
     click_on 'Submit'
 
-    result = connect_to_db.exec('SELECT * FROM spaces')
+    result = connect_to_db_makers_bnb.exec('SELECT * FROM spaces')
 
     expect(result.first['space_name']).to eq 'Bat Cave'
     expect(result.first['space_description']).to eq 'Its a bat cave'
     expect(result.first['price_per_night']).to eq '2.55'
-    
+
   end
 
 end 

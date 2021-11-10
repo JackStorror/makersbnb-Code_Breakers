@@ -35,8 +35,8 @@ Capybara.app = MakersBnB
 RSpec.configure do |config|
   
   config.before(:each) do 
-    connect_to_db
-    reset_db
+    connect_to_db_makers_bnb
+    reset_db_makers_bnb
   end 
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
