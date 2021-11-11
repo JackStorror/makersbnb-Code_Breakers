@@ -1,6 +1,13 @@
 feature 'adding a space' do
 
   scenario 'we can add a space' do
+    populate_users_table
+    visit('/sign_in')
+
+    fill_in(:user_name, with: "bruce@wayne.com")
+    fill_in(:password, with: "password")
+
+    click_on 'Login'
 
     visit('/add_space')
 

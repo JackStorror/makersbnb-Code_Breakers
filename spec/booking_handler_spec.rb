@@ -4,10 +4,9 @@ require_relative '../model/space_handler'
 describe BookingHandler do
   describe '.add_booking' do
     it 'add_bookings a add booking in the database' do
+      populate_users_table
       populate_spaces_table
-      #      persist_space_id(table: 'spaces')
-#      p @space_id[0]['space_id']
-      booking = BookingHandler.add_booking(space_id: 1, booking_start: "01-03-2022", booking_end: "04-03-2022")
+      booking = BookingHandler.add_booking(space_id: 1, booking_start: "01-03-2022", booking_end: "04-03-2022", user_id: '2', host_id: '1')
       persisted_data = persisted_booking_id(booking_id: booking.booking_id, table: 'bookings')
 
       expect(booking).to be_a BookingHandler
@@ -22,12 +21,13 @@ describe BookingHandler do
   end
 
 
-  describe '.all_bookings' do
+  describe '.get_bookings' do
     it 'returns all current bookings' do
+      populate_users_table
       populate_spaces_table
-      booking = BookingHandler.add_booking(space_id: 1, booking_start: '01-04-2022', booking_end: '05-04-2022')
-      BookingHandler.add_booking(space_id: 2, booking_start: '02-04-2022', booking_end: '05-04-2022')
-      BookingHandler.add_booking(space_id: 3, booking_start: '06-04-2022', booking_end: '07-04-2022')
+      booking = BookingHandler.add_booking(space_id: 1, booking_start: '01-04-2022', booking_end: '05-04-2022', user_id: '2', host_id: '1')
+      BookingHandler.add_booking(space_id: 2, booking_start: '02-04-2022', booking_end: '05-04-2022', user_id: '3', host_id: '2')
+      BookingHandler.add_booking(space_id: 3, booking_start: '06-04-2022', booking_end: '07-04-2022', user_id: '1', host_id: '3')
     
       bookings = BookingHandler.get_bookings
     
