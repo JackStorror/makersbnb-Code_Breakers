@@ -9,10 +9,17 @@
 <table id='spaces_table' class='table'>
   <tr>
     <th scope="col">Space</th>
+    <th scope="col">Description</th>
+    <th scope="col">Price per Night</th>
+    <th scope="col">Owner</th>
+
   </tr>
   <% @spaces.each do |space| %>
     <tr>
       <td><%= space.space_name %></td>
+      <td><%= space.space_description %></td>
+      <td><%= space.price_per_night %></td>
+      <td><%= space.user_name %></td>
     </tr>
   <% end %>
 </table>
