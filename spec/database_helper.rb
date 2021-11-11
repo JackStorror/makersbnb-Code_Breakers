@@ -21,6 +21,11 @@ def persist_space_id(table:)
   @space_id = connection.query("SELECT space_id FROM #{table} ")
 end
 
+def persist_request_id(request_id:, table:)
+  connection = PG.connect(dbname: 'makers_bnb_test')
+  connection.query("SELECT * FROM #{table} WHERE request_id = '#{request_id}';")
+end
+
 def populate_users_table
   UserHandler.create_user(user_name: 'bruce@wayne.com', password: 'password')
   UserHandler.create_user(user_name: 'karl@pilkington.com', password: 'password')
@@ -37,4 +42,10 @@ def populate_bookings_table
   BookingHandler.add_booking(space_id: 1, booking_start: '2022-01-04', booking_end: '2022-01-05', user_id: 2, host_id: 1)
   BookingHandler.add_booking(space_id: 2, booking_start: '2022-01-02', booking_end: '2022-01-05', user_id: 3, host_id: 2)
   BookingHandler.add_booking(space_id: 3, booking_start: '2022-01-06', booking_end: '2022-01-09', user_id: 1, host_id: 3)
+end
+
+def populate_requests_table
+  RequestHandler.request_booking(space_id: 1, request_start: '2022-01-04', request_end: '2022-01-05', user_id: 2, host_id: 1)
+  RequestHandler.request_booking(space_id: 2, request_start: '2022-01-02', request_end: '2022-01-05', user_id: 3, host_id: 2)
+  RequestHandler.request_booking(space_id: 3, request_start: '2022-01-06', request_end: '2022-01-09', user_id: 1, host_id: 3)
 end

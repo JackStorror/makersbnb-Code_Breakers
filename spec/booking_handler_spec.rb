@@ -16,7 +16,11 @@ describe BookingHandler do
     end
 
     it 'refuses bookings with conflicting dates' do
+      populate_users_table
+      populate_spaces_table
+      populate_bookings_table
 
+      expect { BookingHandler.add_booking(space_id: 1, booking_start: '2022-01-04', booking_end: '2022-01-05', user_id: 2, host_id: 1) }.to raise_exception  'Sorry the space is not available on those dates'
     end
   end
 
@@ -37,9 +41,12 @@ describe BookingHandler do
     end
   end
 
-  describe '.available' do
- #   it 'confirms whether the property is available' do
-
- #     expect(booking.available).to eq (space_id: 8)
+  describe '.available?' do
+    it 'confirms whether the property is available' do
+      populate_users_table
+      populate_spaces_table
+      populate_bookings_table
+      expect(BookingHandler.available?(1, '2022-01-04', '2022-01-05')).to eq true
+    end
   end
 end
