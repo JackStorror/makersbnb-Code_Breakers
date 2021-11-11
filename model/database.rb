@@ -1,4 +1,3 @@
-
 class Database
 
   def self.connect(database)
@@ -12,5 +11,4 @@ class Database
   def self.query(sql, params = [])
     @connection.exec_params(sql, params)
   end 
-
 end
