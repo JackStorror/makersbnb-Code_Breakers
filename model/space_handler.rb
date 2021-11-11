@@ -21,7 +21,7 @@ class SpaceHandler
     Database.connect('makers_bnb')
     result = Database.query('SELECT * FROM spaces;')
     result.map { |space|
-      Space_handler.new(space_id: space['space_id'], space_name: space['space_name'], 
+      SpaceHandler.new(space_id: space['space_id'], space_name: space['space_name'], 
      space_description: space['space_description'], price_per_night: space['price_per_night'])
     }    
   end
