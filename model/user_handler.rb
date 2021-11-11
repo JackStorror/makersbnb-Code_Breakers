@@ -15,7 +15,7 @@ class UserHandler
     connection.query(("INSERT INTO users(user_name,password) VALUES($1,$2);"),[user_name, encrypted_password])
   end
 
-  def self.get_user_name
+  def self.get_user_name()
     connection = Database.connect('makers_bnb')
     users = connection.query('SELECT * FROM users;')
     users.map { |user| UserHandler.new(user_id: user['user_id'], user_name: user['user_name']) }
