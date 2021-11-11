@@ -21,7 +21,7 @@ feature 'We can sign in with existing user' do
     fill_in(:password, with: "Gotham")
 
     click_on 'Login'
-    expect(page).to have_content 'Welcome Batman'
+    expect(page).to have_content 'Welcome: Batman'
   end 
 
   scenario 'we cant sign in with invalid details' do 

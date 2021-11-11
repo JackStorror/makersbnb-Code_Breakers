@@ -62,6 +62,6 @@ space_description: params[:space_description], price_per_night: params[:price_pe
     flash[:notice] = "You have signed out."
     redirect '/'
   end 
-
+  
   run! if app_file == $0
 end
