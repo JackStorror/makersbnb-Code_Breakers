@@ -17,10 +17,11 @@ class RequestHandler
       "INSERT INTO requests(space_id, request_start, request_end, user_id, host_id) VALUES($1, $2, $3, $4, $5) RETURNING request_id, space_id, request_start, request_end, user_id, host_id;",
       [space_id, request_start, request_end, user_id, host_id],
     )
-    RequestHandler.new(request_id: request[0]['request_id'], space_id: request[0]['space_id'], request_start: request[0]['request_start'], request_end: request[0]['request_end'], user_id: request[0]['user_id'], host_id: request[0]['host_id'])
+    RequestHandler.new(request_id: request[0]['request_id'], space_id: request[0]['space_id'], 
+request_start: request[0]['request_start'], request_end: request[0]['request_end'], user_id: request[0]['user_id'], host_id: request[0]['host_id'])
   end
 
   def self.get_host_requests
     
   end
-  end
+end

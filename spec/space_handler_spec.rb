@@ -32,7 +32,7 @@ describe SpaceHandler do
       populate_spaces_table
       populate_bookings_table
       avail = SpaceHandler.spaces_available(query_start: '2022-01-04', query_end: '2022-01-05')
-      expect(avail[0]).to eq "space_id"=>"3", "space_name"=>"Paradise", "space_description"=>"Its paradise", "price_per_night"=>"99", "user_id"=>"3"
+      expect(avail[0]).to eq "space_id" => "3", "space_name" => "Paradise", "space_description" => "Its paradise", "price_per_night" => "99", "user_id" => "3"
     end
   end
 

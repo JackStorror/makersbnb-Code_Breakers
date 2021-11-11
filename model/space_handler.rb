@@ -21,10 +21,10 @@ class SpaceHandler
   def self.get_spaces
     Database.connect('makers_bnb')
     result = Database.query('SELECT * FROM spaces;')
-    result.map { |space|
+    result.map do |space|
       SpaceHandler.new(space_id: space['space_id'], space_name: space['space_name'], 
      space_description: space['space_description'], price_per_night: space['price_per_night'], user_id: space['user_id'])
-    }    
+    end    
   end
 
   def self.spaces_available(query_start:, query_end:)

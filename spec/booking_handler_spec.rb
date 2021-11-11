@@ -20,10 +20,9 @@ describe BookingHandler do
       populate_spaces_table
       populate_bookings_table
 
-      expect { BookingHandler.add_booking(space_id: 1, booking_start: '2022-01-04', booking_end: '2022-01-05', user_id: 2, host_id: 1) }.to raise_exception  'Sorry the space is not available on those dates'
+      expect { BookingHandler.add_booking(space_id: 1, booking_start: '2022-01-04', booking_end: '2022-01-05', user_id: 2, host_id: 1) }.to raise_exception 'Sorry the space is not available on those dates'
     end
   end
-
 
   describe '.get_bookings' do
     it 'returns all current bookings' do

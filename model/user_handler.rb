@@ -12,7 +12,8 @@ class UserHandler
   def self.create_user(user_name:, password:)
     encrypted_password = BCrypt::Password.create(password)
     connection = Database.connect('makers_bnb')
-    connection.query(("INSERT INTO users(user_name,password) VALUES($1,$2);"),[user_name, encrypted_password])
+    connection.query("INSERT INTO users(user_name,password) VALUES($1,$2);",
+[user_name, encrypted_password])
   end
 
   def self.get_user_name
