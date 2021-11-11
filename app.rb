@@ -2,7 +2,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative './model/space_handler'
 require 'pg'
-require_relative './model/user'
+require_relative './model/user_handler'
 
 class MakersBnB < Sinatra::Base
   configure :development do
@@ -10,7 +10,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/' do
-    @user_name = User.get_user_name
+    @user_name = UserHandler.get_user_name
     erb :index
   end
 
@@ -41,7 +41,7 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/sign_up' do
-    User.create_user(params['user_name'])
+    UserHandler.create_user(user_name: params[:user_name], password: params[:password])
     redirect '/'
   end
 
