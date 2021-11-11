@@ -10,7 +10,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/' do
-    @user_name = UserHandler.get_user_name
+    @user_name = UserHandler.find_user_name
     erb :index
   end
 
@@ -19,16 +19,17 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/add_space' do
-    SpaceHandler.add_space(
+    SpaceHandler.create_space(
       space_name: params[:space_name],
       space_description: params[:space_description],
-      price_per_night: params[:price_per_night]
+      price_per_night: params[:price_per_night],
+      user_name: params[:user_name]
     )
-    k    redirect '/display_spaces'
+    redirect '/display_spaces'
   end
 
   get '/display_spaces' do
-    @spaces = SpaceHandler.get_spaces_row
+    @spaces = SpaceHandler.fetch_space_rows
     erb :display_spaces
   end
 
