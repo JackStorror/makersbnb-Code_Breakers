@@ -1,11 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
+  <h1>Main Page</h1>
   <meta charset="utf-8">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <title>Display Spaces</title>
 </head>
 <body>
-<%= @user_name %>
+
+<%if session[:user_id] != nil %>
+  <h1>Welcome <%= session[:user_name] %> </h1>
+  <a href="/sign_out">Sign out</a>
+<%end%>
+
+<% flash.keys.each do |type| %>
+  <div data-alert class="flash <%= type %> alert-box radius">
+    <%= flash[type] %>
+    <a href="#" class="close">&times;</a>
+  </div>
+<% end %>
+
 </body>
 </html>
