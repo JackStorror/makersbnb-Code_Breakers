@@ -1,6 +1,6 @@
 require_relative './database'
 
-class User
+class UserHandler
   attr_reader :user_name, :user_id
 
   def initialize(user_name:, user_id:)
@@ -16,7 +16,7 @@ class User
   def self.get_user_name
     connection = Database.connect('makers_bnb')
     users = connection.exec_params('SELECT * FROM users;')
-    users.map { |user| User.new(user_id: user['user_id'], user_name: user['user_name']) }
+    users.map { |user| UserHandler.new(user_id: user['user_id'], user_name: user['user_name']) }
     users[0]['user_name']
 end
 end
