@@ -28,7 +28,7 @@ def populate_spaces_table
 end
 
 def populate_bookings_table
-  BookingHandler.add_booking(space_id: 1, booking_start: '01-04-2022', booking_end: '05-04-2022')
-  BookingHandler.add_booking(space_id: 2, booking_start: '02-04-2022', booking_end: '05-04-2022')
-  BookingHandler.add_booking(space_id: 3, booking_start: '06-04-2022', booking_end: '07-04-2022')
+  BookingHandler.add_booking(space_id: 1, booking_start: '2022-01-04', booking_end: '2022-01-06')
+  BookingHandler.add_booking(space_id: 2, booking_start: '2022-01-02', booking_end: '2022-01-06')
+  BookingHandler.add_booking(space_id: 3, booking_start: '2022-01-07', booking_end: '2022-01-09')
 end

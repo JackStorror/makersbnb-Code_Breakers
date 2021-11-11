@@ -24,14 +24,8 @@ class BookingHandler
     result.map { |booking| BookingHandler.new(booking_id: booking['booking_id'], space_id: booking['space_id'], booking_start: booking['booking_start'], booking_end: booking['booking_end']) }
   end
 
-#def self.dates_available?(booking_start:, booking_end:)
-#  Database.connect('makers_bnb')
-#    result = Database.query('
-#      select *
-#      from spaces
-#      where exists (select *
-#                    from bookings
-#                    where (booking_start) between t2.date1 and t2.date2
-#                   );
-#  end
+  def self.spaces_available(query_start:, query_end:)
+    Database.connect('makers_bnb')
+    Database.query("SELECT * FROM spaces WHERE space_id NOT IN (select space_id FROM bookings WHERE (booking_start BETWEEN '#{query_start}' AND '#{query_end}') OR (booking_end BETWEEN '#{query_start}' AND '#{query_end}') OR (booking_start <= '#{query_start}' AND booking_end >= '#{query_end}'));")
+  end
 end

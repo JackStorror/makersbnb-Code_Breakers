@@ -23,4 +23,10 @@ describe SpaceHandler do
 
   end 
 
+  describe '.get_available_spaces' do
+
+    it 'returns only spaces which are available' do
+      
+    end
+
 end
