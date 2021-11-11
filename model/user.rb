@@ -18,5 +18,5 @@ class User
     users = connection.exec_params('SELECT * FROM users;')
     users.map { |user| User.new(user_id: user['user_id'], user_name: user['user_name']) }
     users[0]['user_name']
-end
+  end
 end
