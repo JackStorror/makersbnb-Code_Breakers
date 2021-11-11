@@ -24,7 +24,7 @@ class SpaceHandler
     Database.connect('makers_bnb')
     result = Database.query('SELECT * FROM spaces;')
     result.map do |space|
-      Space_handler.new(
+      SpaceHandler.new(
         space_id: space['space_id'],
         space_name: space['space_name'],
         space_description: space['space_description'],

@@ -10,9 +10,8 @@ CREATE TABLE users
 (
     user_id   SERIAL PRIMARY KEY,
     user_name VARCHAR(60) UNIQUE,
-    space_id   BIGINT REFERENCES spaces (space_id)
+    password VARCHAR(60)
 );
-
 
 CREATE TABLE bookings
 (
