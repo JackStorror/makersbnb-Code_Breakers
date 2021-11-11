@@ -15,12 +15,16 @@ describe Booking_handler do
       expect(booking.booking_start).to eq "2022-01-03"
       expect(booking.booking_end).to eq "2022-04-03"
     end
+
+    it 'refuses bookings with conflicting dates' do
+
+    end
   end
 
   describe '.all_bookings' do
     it 'returns all current bookings' do
       populate_spaces_table
-      booking = Booking_handler.add_booking(space_id: 1, booking_start: '01-04-2022', booking_end: '05-04-2022' )
+      booking = Booking_handler.add_booking(space_id: 1, booking_start: '01-04-2022', booking_end: '05-04-2022')
       Booking_handler.add_booking(space_id: 2, booking_start: '02-04-2022', booking_end: '05-04-2022')
       Booking_handler.add_booking(space_id: 3, booking_start: '06-04-2022', booking_end: '07-04-2022')
     

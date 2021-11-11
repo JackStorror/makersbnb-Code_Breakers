@@ -1,5 +1,5 @@
 require_relative 'database'
-class Space_handler
+class SpaceHandler
   attr_reader :space_id, :space_name, :space_description, :price_per_night
 
   def initialize(space_id:, space_name:, space_description:, price_per_night:)
@@ -20,6 +20,9 @@ class Space_handler
   def self.get_spaces
     Database.connect('makers_bnb')
     result = Database.query('SELECT * FROM spaces;')
-    result.map { |space| Space_handler.new(space_id: space['space_id'], space_name: space['space_name'], space_description: space['space_description'], price_per_night: space['price_per_night']) }
+    result.map { |space|
+      Space_handler.new(space_id: space['space_id'], space_name: space['space_name'], 
+     space_description: space['space_description'], price_per_night: space['price_per_night'])
+    }    
   end
 end

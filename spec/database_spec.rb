@@ -20,5 +20,4 @@ describe Database do
 
   end 
 
-
-end 
+end
