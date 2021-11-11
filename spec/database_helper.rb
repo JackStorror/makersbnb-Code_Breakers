@@ -3,9 +3,9 @@ require_relative '../model/database'
 
 def reset_db_makers_bnb
   connection = PG.connect(dbname: 'makers_bnb_test')
-  connection.exec('TRUNCATE users RESTART IDENTITY CASCADE;')
   connection.exec('TRUNCATE spaces RESTART IDENTITY CASCADE;')
-end
+  connection.exec('TRUNCATE users RESTART IDENTITY CASCADE;')
+end 
 
 def connect_to_db_makers_bnb
   connection = PG.connect(dbname: 'makers_bnb_test')
