@@ -28,11 +28,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/display_spaces' do
-<<<<<<< HEAD
-    @spaces = SpaceHandler.get_spaces
-=======
-    @spaces = Space_handler.get_spaces_row
->>>>>>> WIP into this
+    @spaces = SpaceHandler.get_spaces_row
     erb :display_spaces
   end
 
