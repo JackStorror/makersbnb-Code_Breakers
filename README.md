@@ -34,18 +34,19 @@ I need to be able to add a new space to the database</s>
 
 <s>Users can list multiple spaces.</s>
 
-```
+<s>
 As a user
 As I own multiple spaces
 I need to be able to add more multiple spaces
-```
+</s>
+<s>
 Users should be able to name their space, provide a short description of the space, and a price per night.
-
-```
+</s>
+<s>
 As a user
 So I can get people to see my spaces.
 I can add a name for my space, a description and a per night price
-```
+</s>
 
 <s>
 As a user
@@ -53,17 +54,17 @@ So I can get people to see my spaces.
 I can add a name for my space
 </s>
 
-```
+<s>
 As a user
 So I can tell other users about my spaces.
 I want to add m description 
-```
+</s>>
 
-```
+<s>
 As a user
 So I can set my prices per space
 I want to display a per night price on my space
-```
+</s>
 
 Users should be able to offer a range of dates where their space is available.
 ```
