@@ -43,6 +43,11 @@ class MakersBnB < Sinatra::Base
     erb :sign_up
   end
 
+  get '/book' do
+  p  @space_name = params[:space_name]
+    erb :book
+  end
+
   post '/sign_up' do
     UserHandler.create_user(user_name: params[:user_name], password: params[:password])
     redirect '/sign_in'

@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+<style>
+table tr td a {
+    display:block;
+    height:100%;
+    width:100%;
+}
+</style>
 <head>
   <meta charset="utf-8">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -16,10 +23,11 @@
   </tr>
   <% @spaces.each do |space| %>
     <tr>
-      <td><%= space.space_name %></td>
-      <td><%= space.space_description %></td>
-      <td><%= space.price_per_night %></td>
+      <td><a href="/book/<%= space.space_name %>"><%= space.space_name %></a></td>
+      <td><a href="/book/<%= space.space_name %>"><%= space.space_description %></td>
+      <td><a href="/book/<%= space.space_name %>"><%= space.price_per_night %></td>
       </tr>
+      </a>
   <% end %>
 </table>
 </body>
