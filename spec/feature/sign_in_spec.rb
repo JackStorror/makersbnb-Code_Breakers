@@ -62,6 +62,5 @@ feature 'We can sign in with existing user' do
     expect(page).not_to have_content "Batman"
     expect(page).to have_content "You have signed out."
 
-
   end 
-end 
+end
