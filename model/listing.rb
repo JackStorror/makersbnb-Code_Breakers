@@ -1,4 +1,4 @@
-class SpaceRow
+class Listing
   attr_reader :space_name, :space_description, :price_per_night, :user_name
 
   def initialize(space_name, space_description, price_per_night, user_name)

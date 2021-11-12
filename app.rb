@@ -33,7 +33,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/display_spaces' do
-    @spaces = SpaceHandler.fetch_space_rows
+    @listings = SpaceHandler.fetch_listings
     erb :display_spaces
   end
 
@@ -66,6 +66,12 @@ class MakersBnB < Sinatra::Base
     session.clear
     flash[:notice] = "You have signed out."
     redirect '/'
+  end
+
+  get '/listing' do
+    @listings = SpaceHandler.fetch_listings
+    p @listings
+    erb :listing
   end
 
   run! if app_file == $0

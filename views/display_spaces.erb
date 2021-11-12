@@ -15,14 +15,14 @@
     <th scope="col"></th>
 
   </tr>
-  <% @spaces.each do |space| %>
+  <% @listings.each do |listing| %>
     <tr>
-      <td><%= space.space_name %></td>
-      <td><%= space.space_description %></td>
-      <td><%= space.price_per_night %></td>
-      <td><%= space.user_name %></td>
+      <td><%= listing.space_name %></td>
+      <td><%= listing.space_description %></td>
+      <td><%= listing.price_per_night %></td>
+      <td><%= listing.user_name %></td>
       <td>
-        <form action='/list_space' method='post'>
+        <form action='/listing' method='post'>
           <input type='submit' value="List">
         </form>
       </td>

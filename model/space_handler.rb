@@ -1,5 +1,5 @@
 require_relative 'database'
-require_relative './space_row'
+require_relative './listing'
 
 class SpaceHandler
   attr_reader :space_id, :space_name, :space_description, :price_per_night, :user_id
@@ -39,13 +39,13 @@ class SpaceHandler
     end
   end
 
-  def self.fetch_space_rows
+  def self.fetch_listings
     rows = []
     result = fetch_spaces
     result.each do |space|
       user_id = space.user_id.to_i
       user_name = UserHandler.fetch_user_name(user_id)
-      rows << SpaceRow.new(
+      rows << Listing.new(
         space.space_name,
         space.space_description,
         space.price_per_night,
