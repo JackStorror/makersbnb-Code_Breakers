@@ -13,7 +13,7 @@ end
 
 def persisted_booking_id(booking_id:, table:)
   connection = PG.connect(dbname: 'makers_bnb_test')
-  connection.query("SELECT * FROM #{table} WHERE booking_id = '#{booking_id}';")
+  connection.query("SELECT * FROM #{table}  maWHERE booking_id = '#{booking_id}';")
 end
 
 def persist_space_id(table:)
