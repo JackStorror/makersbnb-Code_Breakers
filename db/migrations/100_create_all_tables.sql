@@ -1,7 +1,7 @@
 CREATE TABLE users
 (
-    user_id   SERIAL PRIMARY KEY,
-    user_name VARCHAR(60) UNIQUE,
+    user_id   SERIAL PRIMARY KEY NOT NULL,
+    user_name VARCHAR(60) UNIQUE NOT NULL,
     password  VARCHAR(60)
 );
 
@@ -24,7 +24,8 @@ CREATE TABLE bookings
     user_id       INTEGER NOT NULL REFERENCES users (user_id)
   );
 
-  CREATE TABLE requests (
+CREATE TABLE requests (
+
     request_id serial PRIMARY KEY,
     space_id INTEGER REFERENCES spaces (space_id),
     request_start DATE NOT NULL,
