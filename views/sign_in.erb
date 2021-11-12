@@ -1,16 +1,26 @@
-<h1>Sign In</h1>
-
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <h1 style="text-align: center;">Welcome to MakersBnB</h1>
+  <h2 style="text-align: center;">Please Sign In</h2>
+  <title>Sign In</title>
+</head>
+<body>
 <% flash.keys.each do |type| %>
   <div data-alert class="flash <%= type %> alert-box radius">
     <%= flash[type] %>
     <a href="#" class="close">&times;</a>
   </div>
 <% end %>
+<form style="text-align: center;" action='/sign_in' method='post'>
+  <input style="text-align: center;" type='text' name='user_name' placeholder='Type in username' >
+  <input style="text-align: center;" type='text' name='password' placeholder='Enter a password'>
 
-<form action='/sign_in' method='post'>
-  <input type='text' name='user_name' placeholder='Type in username' >
-  <input type='password' name='password' placeholder='Enter a password'>
   <input type='submit' name='Login'>
 </form>
-<a href="/">Home Page |<a>
-<a href="/sign_up">Sign up</a>
+
+<h6 style="text-align: center;"> <a href="/">Home Page |<a> <a href="/sign_up">Sign up</a>  </h6>
+</body>
+</html>
