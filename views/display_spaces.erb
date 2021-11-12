@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<style>
+.row > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
@@ -6,6 +13,25 @@
   <title>Display Spaces</title>
 </head>
 <body>
+<%if session[:user_id] != nil %>
+  <h2 style="font-family: arial;">Welcome: <%= session[:user_name] %> </h2>
+  <div class="row">
+  <form action="/add_space">
+    <input type="submit" value="List Space" />
+  </form>
+    <form action="/manage_requests">
+    <input type="submit" value="Manage my requests" />
+  </form>
+    <form action="/sign_out">
+    <input type="submit" value="Sign out" />
+  </form>
+  </div>
+<%end%>
+  <form action="/display_filtered_spaces">
+  <input type="date" placeholder='Check-in?' id="check_in" name="check_in">
+  <input type="date" placeholder='Check-out?' id="check_out" name="check_out">
+  <input type="submit">
+</form>
 <table id='spaces_table' class='table'>
   <tr>
     <th scope="col">Space</th>
