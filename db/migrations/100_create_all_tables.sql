@@ -11,7 +11,7 @@ CREATE TABLE spaces
     space_name        VARCHAR(20),
     space_description VARCHAR(120),
     price_per_night   DOUBLE PRECISION,
-    user_id           INTEGER NOT NULL REFERENCES users (user_id),
+    user_id           INTEGER NOT NULL REFERENCES users (user_id)
 );
 
 CREATE TABLE bookings

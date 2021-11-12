@@ -1,5 +1,6 @@
 require_relative 'database'
 require_relative './space_row'
+require_relative 'user_handler'
 
 class SpaceHandler
   attr_reader :space_id, :space_name, :space_description, :price_per_night, :user_id
@@ -38,6 +39,20 @@ class SpaceHandler
       )
     end
   end
+
+  def self.fetch_space_by_id(space_id:)
+    Database.connect('makers_bnb')
+    result = Database.query("SELECT * FROM spaces WHERE space_id = '#{space_id}';")
+    result.map do |space|
+      SpaceHandler.new(
+        space_id: space['space_id'],
+        space_name: space['space_name'],
+        space_description: space['space_description'],
+        price_per_night: space['price_per_night'],
+        user_id: space['user_id']
+      )
+    end
+  end 
 
   def self.fetch_space_rows
     rows = []

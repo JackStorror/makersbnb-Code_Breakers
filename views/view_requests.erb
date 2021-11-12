@@ -1,0 +1,8 @@
+Booking Requests
+<%@requesters_id.each do |request|%>
+  <li><%=UserHandler.fetch_user_name(request.user_id)%> </li>
+  <li><%result = SpaceHandler.fetch_space_by_id(space_id: request.space_id)%></li>
+  <li><%result.each do |space|%></li>
+    <li><%=space.space_name%></li>
+  <%end%>
+<%end%>
