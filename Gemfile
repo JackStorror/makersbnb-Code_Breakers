@@ -12,4 +12,5 @@ gem 'webrick'
 gem 'rubocop'
 gem 'pg'
 gem 'bcrypt'
+gem 'sinatra-flash'
 

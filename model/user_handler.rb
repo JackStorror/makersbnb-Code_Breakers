@@ -27,7 +27,15 @@ class UserHandler
     connection = Database.connect('makers_bnb')
     users = connection.query('SELECT * FROM users;')
     users.map { |user| UserHandler.new(user_id: user['user_id'], user_name: user['user_name']) }
-    users[0]['user_name']
+    users.first['user_name']
+  end
+
+  def self.authentication(user_name:, password:)
+    Database.connect('makers_bnb')
+    result = Database.query("SELECT * FROM users WHERE user_name = $1",[user_name])
+    return unless result.any?
+    return unless BCrypt::Password.new(result[0]['password']) == password
+    UserHandler.new(user_id: result[0]['user_id'], user_name: result[0]['user_name'])
   end
 
   def self.fetch_user_id(user_name)
@@ -36,5 +44,4 @@ class UserHandler
     users.map { |user| UserHandler.new(user_id: user['user_id'], user_name: user['user_name']) }
     users[0]['user_id']
   end
-
 end

@@ -1,7 +1,7 @@
 class Database
 
   def self.connect(database)
-    if ENV['RACK_ENV'] = "test"
+    if ENV['RACK_ENV'] == "test"
       @connection = PG.connect(dbname: "#{database}_test")
     else
       @connection = PG.connect(dbname: database)
