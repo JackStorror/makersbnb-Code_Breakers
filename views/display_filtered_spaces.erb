@@ -3,20 +3,14 @@
 <head>
   <meta charset="utf-8">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <title>Display Spaces</title>
+  <title>These Spaces are available on your selected dates</title>
 </head>
 <body>
-  <form action="/display_filtered_spaces">
-  <input type="date" placeholder='Check-in?' id="check_in" name="check_in">
-  <input type="date" placeholder='Check-out?' id="check_out" name="check_out">
-  <input type="submit">
-</form>
 <table id='spaces_table' class='table'>
   <tr>
     <th scope="col">Space</th>
     <th scope="col">Description</th>
     <th scope="col">Price per Night</th>
-    <th scope="col">Owner</th>
 
   </tr>
   <% @spaces.each do |space| %>
@@ -24,8 +18,7 @@
       <td><%= space.space_name %></td>
       <td><%= space.space_description %></td>
       <td><%= space.price_per_night %></td>
-      <td><%= space.user_name %></td>
-    </tr>
+      </tr>
   <% end %>
 </table>
 </body>

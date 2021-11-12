@@ -33,6 +33,11 @@ class MakersBnB < Sinatra::Base
     erb :display_spaces
   end
 
+  get '/display_filtered_spaces' do
+    @spaces = SpaceHandler.spaces_available(query_start: params[:check_in], query_end: params[:check_out])
+    erb :display_filtered_spaces
+  end
+
   get '/sign_up' do
     erb :sign_up
   end
