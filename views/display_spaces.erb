@@ -12,6 +12,7 @@
     <th scope="col">Description</th>
     <th scope="col">Price per Night</th>
     <th scope="col">Owner</th>
+    <th scope="col"></th>
 
   </tr>
   <% @spaces.each do |space| %>
@@ -20,6 +21,11 @@
       <td><%= space.space_description %></td>
       <td><%= space.price_per_night %></td>
       <td><%= space.user_name %></td>
+      <td>
+        <form action='/list_space' method='post'>
+          <input type='submit' value="List">
+        </form>
+      </td>
     </tr>
   <% end %>
 </table>
