@@ -29,12 +29,23 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/display_spaces' do
+    @user_name = UserHandler.find_user_name
     @spaces = SpaceHandler.fetch_space_rows
     erb :display_spaces
   end
 
+  get '/display_filtered_spaces' do
+    @spaces = SpaceHandler.spaces_available(query_start: params[:check_in], query_end: params[:check_out])
+    erb :display_filtered_spaces
+  end
+
   get '/sign_up' do
     erb :sign_up
+  end
+
+  get '/book' do
+  p  @space_name = params[:space_name]
+    erb :book
   end
 
   post '/sign_up' do
@@ -51,7 +62,7 @@ class MakersBnB < Sinatra::Base
     if user
       session[:user_name] = user.user_name
       session[:user_id] = user.user_id
-      redirect '/'
+      redirect '/display_spaces'
     else
       flash[:notice] = "Invalid Login Attempt"
       redirect '/sign_in'
