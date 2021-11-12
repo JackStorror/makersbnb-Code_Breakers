@@ -1,7 +1,22 @@
 <b>Makers BNB - Team Code Breakers</b>
 
-This 
+The goal of this project was to achieve the headline specifications of the MakersBNB project - and we were close! 
 
+<b>Headline specifications</b>
+Any signed-up user can list a new space.
+<i> This is complete </i>
+Users can list multiple spaces.
+<i> This is complete </i>
+Users should be able to name their space, provide a short description of the space, and a price per night.
+<i> This is complete </i>
+Users should be able to offer a range of dates where their space is available.
+<i> The object here was, as a host can accept or reject requests - a user can request any date range. They will be prevented from double booking but can have competing requests. Host's have control over their space availablility via this method by rejecting requests for dates they don't want</i>
+Any signed-up user can request to hire any space for one night, and this should be approved by the user that owns that space.
+<i> This is not complete. We've managed to get some of the code sorted for the back end but don't currently have the ability to make requests via a webpage.</i>
+Nights for which a space has already been booked should not be available for users to book that space.
+<i> This is complete </i>
+Until a user has confirmed a booking request, that space can still be booked for that night.
+<i> This is in progress not completed </i>
 
 Minimum Viable Product MVP
 
