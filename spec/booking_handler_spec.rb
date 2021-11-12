@@ -4,6 +4,7 @@ require_relative '../model/space_handler'
 describe BookingHandler do
   describe '.add_booking' do
     it 'add_bookings a add booking in the database' do
+      populate_users_table
       populate_spaces_table
       #      persist_space_id(table: 'spaces')
 #      p @space_id[0]['space_id']
@@ -24,6 +25,7 @@ describe BookingHandler do
 
   describe '.all_bookings' do
     it 'returns all current bookings' do
+      populate_users_table
       populate_spaces_table
       booking = BookingHandler.add_booking(space_id: 1, booking_start: '01-04-2022', booking_end: '05-04-2022')
       BookingHandler.add_booking(space_id: 2, booking_start: '02-04-2022', booking_end: '05-04-2022')
