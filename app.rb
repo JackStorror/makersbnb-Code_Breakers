@@ -14,7 +14,6 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/' do
-    @user_name = UserHandler.find_user_name
     erb :index
   end
 
@@ -74,6 +73,12 @@ class MakersBnB < Sinatra::Base
     flash[:notice] = "You have signed out."
     redirect '/'
   end
+
+  get '/view_requests' do
+    p session[:user_id]
+    p @requesters_id = RequestHandler.get_user_requests(host_id: session[:user_id])
+    erb :view_requests
+  end 
 
   run! if app_file == $0
 end

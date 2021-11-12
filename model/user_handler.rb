@@ -20,8 +20,9 @@ class UserHandler
     connection = Database.connect('makers_bnb')
     users = connection.query("SELECT user_name FROM users WHERE user_id = #{user_id};")
     users.map { |user| UserHandler.new(user_id: ['user_id'], user_name: user['user_name']) }
-    users[0]['user_name']
-  end
+    users.first['user_name']
+  
+  end 
 
   def self.find_user_name
     connection = Database.connect('makers_bnb')
