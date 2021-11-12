@@ -13,10 +13,17 @@ class UserHandler
     encrypted_password = BCrypt::Password.create(password)
     connection = Database.connect('makers_bnb')
     connection.query("INSERT INTO users(user_name,password) VALUES($1,$2);",
-[user_name, encrypted_password])
+                     [user_name, encrypted_password])
   end
 
-  def self.get_user_name
+  def self.fetch_user_name(user_id)
+    connection = Database.connect('makers_bnb')
+    users = connection.query("SELECT user_name FROM users WHERE user_id = #{user_id};")
+    users.map { |user| UserHandler.new(user_id: ['user_id'], user_name: user['user_name']) }
+    users[0]['user_name']
+  end
+
+  def self.find_user_name
     connection = Database.connect('makers_bnb')
     users = connection.query('SELECT * FROM users;')
     users.map { |user| UserHandler.new(user_id: user['user_id'], user_name: user['user_name']) }
@@ -29,5 +36,12 @@ class UserHandler
     return unless result.any?
     return unless BCrypt::Password.new(result[0]['password']) == password
     UserHandler.new(user_id: result[0]['user_id'], user_name: result[0]['user_name'])
-  end 
+  end
+
+  def self.fetch_user_id(user_name)
+    connection = Database.connect('makers_bnb')
+    users = connection.query("SELECT * FROM users WHERE user_name = '#{user_name}';")
+    users.map { |user| UserHandler.new(user_id: user['user_id'], user_name: user['user_name']) }
+    users[0]['user_id']
+  end
 end

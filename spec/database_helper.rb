@@ -5,7 +5,7 @@ def reset_db_makers_bnb
   connection = PG.connect(dbname: 'makers_bnb_test')
   connection.exec('TRUNCATE spaces RESTART IDENTITY CASCADE;')
   connection.exec('TRUNCATE users RESTART IDENTITY CASCADE;')
-end 
+end
 
 def connect_to_db_makers_bnb
   connection = PG.connect(dbname: 'makers_bnb_test')

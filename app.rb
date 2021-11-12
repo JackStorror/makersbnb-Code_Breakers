@@ -5,7 +5,7 @@ require_relative './model/space_handler'
 require 'pg'
 require_relative './model/user_handler'
 
-class MakersBnB < Sinatra::Base 
+class MakersBnB < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
 
@@ -14,6 +14,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/' do
+    @user_name = UserHandler.find_user_name
     erb :index
   end
 
@@ -28,7 +29,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/display_spaces' do
-    @spaces = SpaceHandler.get_spaces
+    @spaces = SpaceHandler.fetch_space_rows
     erb :display_spaces
   end
 
@@ -41,27 +42,27 @@ class MakersBnB < Sinatra::Base
     redirect '/sign_in'
   end
 
-  get '/sign_in' do 
+  get '/sign_in' do
     erb :sign_in
-  end 
+  end
 
-  post '/sign_in' do 
+  post '/sign_in' do
     user = UserHandler.authentication(user_name: params[:user_name], password: params[:password])
-    if user 
+    if user
       session[:user_name] = user.user_name
       session[:user_id] = user.user_id
       redirect '/'
     else
       flash[:notice] = "Invalid Login Attempt"
       redirect '/sign_in'
-    end 
+    end
   end
 
-  get '/sign_out' do 
+  get '/sign_out' do
     session.clear
     flash[:notice] = "You have signed out."
     redirect '/'
-  end 
-  
+  end
+
   run! if app_file == $0
 end
